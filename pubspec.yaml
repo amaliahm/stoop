@@ -35,3 +35,16 @@ dev_dependencies:
 flutter:
 
   uses-material-design: true
+
+  assets:
+    - assets/fonts/
+
+fonts:
+    - family: Sen
+      fonts:
+        - asset: fonts/Sen-Bold.ttf
+        - asset: fonts/Sen-ExtraBold.ttf
+        - asset: fonts/Sen-Medium.ttf
+        - asset: fonts/Sen-Regular.ttf
+        - asset: fonts/Sen-SemiBold.ttf
+        - asset: fonts/Sen-VariableFont_wght.ttf
