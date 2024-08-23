@@ -38,6 +38,9 @@ flutter:
 
   assets:
     - assets/fonts/
+    - assets/images/
+    - assets/images/logo.png
+    - assets/images/travel_easy.png
 
 fonts:
     - family: Sen

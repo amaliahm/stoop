@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:stoop/pages/welcomePage.dart';
+import 'package:stoop/pages/registration/welcomePage.dart';
 import 'package:stoop/routes/pages.dart';
 import 'package:stoop/widgets/style.dart';
 
@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Jewellery',
       theme: ThemeData(
-        primaryColor: AppTheme.mainGrey,
+        primaryColor: AppTheme.whiteColor,
         scaffoldBackgroundColor: Colors.white,
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
