@@ -30,10 +30,10 @@ class _SplashViewState extends State<SplashView> {
         child: Column(
           children: [
             const SizedBox(
-              height: 50,
+              height: 150,
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 70, bottom: 70),
+              padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 70),
               child: SizedBox(
                   width: MediaQuery.of(context).size.width,
                   child: Image.asset('assets/images/logo.png')),

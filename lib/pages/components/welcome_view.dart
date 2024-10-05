@@ -13,14 +13,14 @@ class WelcomeView extends StatelessWidget {
       CurvedAnimation(
         parent: animationController,
         curve: const Interval(
-          0.6,
           0.8,
+          1.0,
           curve: Curves.fastOutSlowIn,
         ),
       ),
     );
     final _secondHalfAnimation =
-        Tween<Offset>(begin: const Offset(0, 0), end: const Offset(-1, 0)).animate(
+        Tween<Offset>(begin: const Offset(1, 0), end: const Offset(0, 0)).animate(
       CurvedAnimation(
         parent: animationController,
         curve: const Interval(
@@ -36,8 +36,8 @@ class WelcomeView extends StatelessWidget {
             .animate(CurvedAnimation(
       parent: animationController,
       curve: const Interval(
-        0.6,
         0.8,
+        1.0,
         curve: Curves.fastOutSlowIn,
       ),
     ));
@@ -47,8 +47,8 @@ class WelcomeView extends StatelessWidget {
             .animate(CurvedAnimation(
       parent: animationController,
       curve: const Interval(
-        0.6,
         0.8,
+        1.0,
         curve: Curves.fastOutSlowIn,
       ),
     ));
@@ -66,8 +66,8 @@ class WelcomeView extends StatelessWidget {
                 child: Container(
                   constraints: const BoxConstraints(maxWidth: 350, maxHeight: 350),
                   child: Image.asset(
-                    'assets/images/contact_the_driver.png',
-                    fit: BoxFit.contain,
+                    'assets/images/searching.png',
+                    fit: BoxFit.cover,
                   ),
                 ),
               ),
@@ -75,7 +75,7 @@ class WelcomeView extends StatelessWidget {
               SlideTransition(
                 position: _welcomeFirstHalfAnimation,
                 child: const Text(
-                  "Contact the driver",
+                  "Find Your Ride, Anytime",
                   style: TextStyle(fontSize: 25.0, fontWeight: FontWeight.bold),
                 ),
               ),
@@ -83,7 +83,7 @@ class WelcomeView extends StatelessWidget {
                 padding:
                     EdgeInsets.only(left: 64, right: 64, top: 16, bottom: 16),
                 child: Text(
-                  "Discover Now",
+                  "Seamless car connections to get you wherever you need to be.",
                   textAlign: TextAlign.center,
                 ),
               ),

@@ -30,8 +30,8 @@ class TopBackSkipView extends StatelessWidget {
         .animate(CurvedAnimation(
       parent: animationController!,
       curve: Interval(
-        0.6,
         0.8,
+        1.0,
         curve: Curves.fastOutSlowIn,
       ),
     ));

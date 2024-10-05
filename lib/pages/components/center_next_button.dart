@@ -28,8 +28,8 @@ class CenterNextButton extends StatelessWidget {
         Tween<double>(begin: 0, end: 1.0).animate(CurvedAnimation(
       parent: animationController,
       curve: const Interval(
-        0.6,
         0.8,
+        1.0,
         curve: Curves.fastOutSlowIn,
       ),
     ));
@@ -38,8 +38,8 @@ class CenterNextButton extends StatelessWidget {
             .animate(CurvedAnimation(
       parent: animationController,
       curve: const Interval(
-        0.6,
         0.8,
+        1.0,
         curve: Curves.fastOutSlowIn,
       ),
     ));
@@ -57,7 +57,7 @@ class CenterNextButton extends StatelessWidget {
               animation: animationController,
               builder: (context, child) => AnimatedOpacity(
                 opacity: animationController.value >= 0.2 &&
-                        animationController.value <= 0.6
+                        animationController.value <= 0.8
                     ? 1
                     : 0,
                 duration: const Duration(milliseconds: 480),
@@ -82,7 +82,7 @@ class CenterNextButton extends StatelessWidget {
                   ),
                   child: PageTransitionSwitcher(
                     duration: const Duration(milliseconds: 480),
-                    reverse: _signUpMoveAnimation.value < 0.7,
+                    reverse: _signUpMoveAnimation.value < 0.9,
                     transitionBuilder: (
                       Widget child,
                       Animation<double> animation,
@@ -96,7 +96,7 @@ class CenterNextButton extends StatelessWidget {
                         transitionType: SharedAxisTransitionType.vertical,
                       );
                     },
-                    child: _signUpMoveAnimation.value > 0.7
+                    child: _signUpMoveAnimation.value > 0.9
                         ? InkWell(
                             key: const ValueKey('Sign Up button'),
                             onTap: onNextClick,
@@ -172,9 +172,11 @@ class CenterNextButton extends StatelessWidget {
   Widget _pageView() {
     int _selectedIndex = 0;
 
-    if (animationController.value >= 0.7) {
+    if (animationController.value >= 0.9) {
+      _selectedIndex = 4;
+    } else if (animationController.value >= 0.7) {
       _selectedIndex = 3;
-    } else if (animationController.value >= 0.5) {
+    }else if (animationController.value >= 0.5) {
       _selectedIndex = 2;
     } else if (animationController.value >= 0.3) {
       _selectedIndex = 1;
@@ -187,7 +189,7 @@ class CenterNextButton extends StatelessWidget {
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          for (var i = 0; i < 4; i++)
+          for (var i = 0; i < 5; i++)
             Padding(
               padding: const EdgeInsets.all(4),
               child: AnimatedContainer(
