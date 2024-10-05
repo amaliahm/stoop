@@ -4,7 +4,6 @@ import 'package:stoop/pages/registration/welcomePage.dart';
 import 'package:stoop/routes/pages.dart';
 import 'package:stoop/widgets/style.dart';
 
-
 void main() async {
   runApp(const MyApp());
 }
@@ -16,7 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Jewellery',
+      title: 'Stoop',
       theme: ThemeData(
         primaryColor: AppTheme.whiteColor,
         scaffoldBackgroundColor: Colors.white,
