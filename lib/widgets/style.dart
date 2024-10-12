@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 
 class AppTheme {
@@ -12,6 +14,7 @@ class AppTheme {
   static const Color blackColor = Color.fromRGBO(33, 51, 51, 1);
   static const Color grey = Color.fromRGBO(100, 105, 130, 1);
   static const Color red = Color.fromRGBO(224, 68, 68, 1);
+  static const Color grey200 = Color.fromRGBO(238, 238, 238, 1);
   
 
   static const Color normalText = Color(0xFFFFFFFF);
@@ -35,7 +38,6 @@ class AppTheme {
   );
 
   static const TextStyle display1 = TextStyle(
-    // h4 -> display1
     fontFamily: fontName,
     fontWeight: FontWeight.bold,
     fontSize: 36,
@@ -45,7 +47,6 @@ class AppTheme {
   );
 
   static const TextStyle headline = TextStyle(
-    // h5 -> headline
     fontFamily: fontName,
     fontWeight: FontWeight.bold,
     fontSize: 24,
@@ -54,7 +55,6 @@ class AppTheme {
   );
 
   static const TextStyle title = TextStyle(
-    // h6 -> title
     fontFamily: fontName,
     fontWeight: FontWeight.bold,
     fontSize: 16,
@@ -63,7 +63,6 @@ class AppTheme {
   );
 
   static const TextStyle subtitle = TextStyle(
-    // subtitle2 -> subtitle
     fontFamily: fontName,
     fontWeight: FontWeight.w400,
     fontSize: 14,
@@ -72,7 +71,6 @@ class AppTheme {
   );
 
   static const TextStyle body2 = TextStyle(
-    // body1 -> body2
     fontFamily: fontName,
     fontWeight: FontWeight.w400,
     fontSize: 14,
@@ -81,7 +79,6 @@ class AppTheme {
   );
 
   static const TextStyle body1 = TextStyle(
-    // body2 -> body1
     fontFamily: fontName,
     fontWeight: FontWeight.w400,
     fontSize: 16,
@@ -90,11 +87,10 @@ class AppTheme {
   );
 
   static const TextStyle caption = TextStyle(
-    // Caption -> caption
     fontFamily: fontName,
     fontWeight: FontWeight.w400,
     fontSize: 12,
     letterSpacing: 0.2,
-    color: lightText, // was lightText
+    color: lightText, 
   );
 }

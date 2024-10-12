@@ -1,3 +1,5 @@
+// ignore_for_file: no_leading_underscores_for_local_identifiers
+
 import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -90,10 +92,10 @@ class CenterNextButton extends StatelessWidget {
                     ) {
                       return SharedAxisTransition(
                         fillColor: Colors.transparent,
-                        child: child,
                         animation: animation,
                         secondaryAnimation: secondaryAnimation,
                         transitionType: SharedAxisTransitionType.vertical,
+                        child: child,
                       );
                     },
                     child: _signUpMoveAnimation.value > 0.9
@@ -101,11 +103,11 @@ class CenterNextButton extends StatelessWidget {
                             key: const ValueKey('Sign Up button'),
                             onTap: onNextClick,
                             child: Padding(
-                              padding: EdgeInsets.only(left: 16.0, right: 16.0),
+                              padding: const EdgeInsets.only(left: 16.0, right: 16.0),
                               child: Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
-                                children: [
+                                children: const [
                                   Text(
                                     'Sign Up',
                                     style: TextStyle(
@@ -193,7 +195,7 @@ class CenterNextButton extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(4),
               child: AnimatedContainer(
-                duration: Duration(milliseconds: 480),
+                duration: const Duration(milliseconds: 480),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(32),
                   color: _selectedIndex == i

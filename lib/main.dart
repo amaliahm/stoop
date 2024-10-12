@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:stoop/pages/registration/welcomePage.dart';
 import 'package:stoop/routes/pages.dart';
 import 'package:stoop/widgets/style.dart';
 
@@ -28,7 +27,6 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      // home: WelcomePage(),
       defaultTransition: Transition.cupertino,
       opaqueRoute: Get.isOpaqueRouteDefault,
       popGesture: Get.isPopGestureEnable,

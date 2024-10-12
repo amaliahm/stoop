@@ -1,14 +1,16 @@
+// ignore_for_file: file_names, library_private_types_in_public_api
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../routes/pages.dart';
-import '../components/center_next_button.dart';
-import '../components/travel_easy.dart';
-import '../components/choose_what_helps_you.dart';
-import '../components/search_anytime.dart';
-import '../components/splash_view.dart';
-import '../components/top_back_skip_view.dart';
-import '../components/welcome_view.dart';
-import '../components//contact_the_driver.dart';
+import '../../components/onboarding/center_next_button.dart';
+import '../../components/onboarding/travel_easy.dart';
+import '../../components/onboarding/choose_what_helps_you.dart';
+import '../../components/onboarding/search_anytime.dart';
+import '../../components/onboarding/splash_view.dart';
+import '../../components/onboarding/top_back_skip_view.dart';
+import '../../components/onboarding/welcome_view.dart';
+import '../../components/onboarding/contact_the_driver.dart';
 
 class WelcomePage extends StatefulWidget {
   const WelcomePage({Key? key}) : super(key: key);
@@ -38,9 +40,8 @@ class _WelcomePageState extends State<WelcomePage>
 
   @override
   Widget build(BuildContext context) {
-    print(_animationController?.value); // Use for debugging purposes
     return Scaffold(
-      backgroundColor: Colors.white, // Use your AppTheme.whiteColor
+      backgroundColor: Colors.white,
       body: ClipRect(
         child: Stack(
           children: [

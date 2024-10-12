@@ -1,71 +1,73 @@
+// ignore_for_file: no_leading_underscores_for_local_identifiers
+
 import 'package:flutter/material.dart';
 
-class SearchAnytime extends StatelessWidget {
+class ContactTheDriver extends StatelessWidget {
   final AnimationController animationController;
 
-  const SearchAnytime({Key? key, required this.animationController})
+  const ContactTheDriver({Key? key, required this.animationController})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final _firstHalfAnimation =
-        Tween<Offset>(begin: Offset(1, 0), end: Offset(0, 0))
+        Tween<Offset>(begin: const Offset(1, 0), end: const Offset(0, 0))
             .animate(CurvedAnimation(
       parent: animationController,
-      curve: Interval(
-        0.2,
-        0.4,
+      curve: const Interval(
+        0.6,
+        0.8,
         curve: Curves.fastOutSlowIn,
       ),
     ));
     final _secondHalfAnimation =
-        Tween<Offset>(begin: Offset(0, 0), end: Offset(-1, 0))
+        Tween<Offset>(begin: const Offset(0, 0), end: const Offset(-1, 0))
             .animate(CurvedAnimation(
       parent: animationController,
-      curve: Interval(
-        0.4,
-        0.6,
-        curve: Curves.fastOutSlowIn,
-      ),
-    ));
-    final _relaxFirstHalfAnimation =
-        Tween<Offset>(begin: Offset(2, 0), end: Offset(0, 0))
-            .animate(CurvedAnimation(
-      parent: animationController,
-      curve: Interval(
-        0.2,
-        0.4,
-        curve: Curves.fastOutSlowIn,
-      ),
-    ));
-    final _relaxSecondHalfAnimation =
-        Tween<Offset>(begin: Offset(0, 0), end: Offset(-2, 0))
-            .animate(CurvedAnimation(
-      parent: animationController,
-      curve: Interval(
-        0.4,
-        0.6,
+      curve: const Interval(
+        0.8,
+        1.0,
         curve: Curves.fastOutSlowIn,
       ),
     ));
 
-    final _imageFirstHalfAnimation =
-        Tween<Offset>(begin: Offset(4, 0), end: Offset(0, 0))
+    final _moodFirstHalfAnimation =
+        Tween<Offset>(begin: const Offset(2, 0), end: const Offset(0, 0))
             .animate(CurvedAnimation(
       parent: animationController,
-      curve: Interval(
-        0.2,
-        0.4,
+      curve: const Interval(
+        0.6,
+        0.8,
+        curve: Curves.fastOutSlowIn,
+      ),
+    ));
+    final _moodSecondHalfAnimation =
+        Tween<Offset>(begin: const Offset(0, 0), end: const Offset(-2, 0))
+            .animate(CurvedAnimation(
+      parent: animationController,
+      curve: const Interval(
+        0.8,
+        1.0,
+        curve: Curves.fastOutSlowIn,
+      ),
+    ));
+    final _imageFirstHalfAnimation =
+        Tween<Offset>(begin: const Offset(4, 0), end: const Offset(0, 0))
+            .animate(CurvedAnimation(
+      parent: animationController,
+      curve: const Interval(
+        0.6,
+        0.8,
         curve: Curves.fastOutSlowIn,
       ),
     ));
     final _imageSecondHalfAnimation =
-        Tween<Offset>(begin: Offset(0, 0), end: Offset(-4, 0))
+        Tween<Offset>(begin: const Offset(0, 0), end: const Offset(-4, 0))
             .animate(CurvedAnimation(
       parent: animationController,
-      curve: Interval(
-        0.4,
-        0.6,
+      curve: const Interval(
+        0.8,
+        1.0,
         curve: Curves.fastOutSlowIn,
       ),
     ));
@@ -79,6 +81,24 @@ class SearchAnytime extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              const Text(
+                "Contact the driver",
+                style: TextStyle(fontSize: 26.0, fontWeight: FontWeight.bold),
+              ),
+              SlideTransition(
+                position: _moodFirstHalfAnimation,
+                child: SlideTransition(
+                  position: _moodSecondHalfAnimation,
+                  child: const Padding(
+                    padding: EdgeInsets.only(
+                        left: 64, right: 64, top: 16, bottom: 16),
+                    child: Text(
+                      "ipsum dolor sit amet, consectetur adipiscing elit velsem telluorbi sed feugiat leo vulputate maximus iverra.",
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                ),
+              ),
               SlideTransition(
                 position: _imageFirstHalfAnimation,
                 child: SlideTransition(
@@ -87,32 +107,10 @@ class SearchAnytime extends StatelessWidget {
                     constraints:
                         const BoxConstraints(maxWidth: 350, maxHeight: 250),
                     child: Image.asset(
-                      'assets/images/search_anytime.png',
+                      'assets/images/contact_the_driver.png',
                       fit: BoxFit.contain,
                     ),
                   ),
-                ),
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              SlideTransition(
-                position: _relaxFirstHalfAnimation,
-                child: SlideTransition(
-                  position: _relaxSecondHalfAnimation,
-                  child: Text(
-                    "Search anytime",
-                    style:
-                        TextStyle(fontSize: 26.0, fontWeight: FontWeight.bold),
-                  ),
-                ),
-              ),
-              Padding(
-                padding:
-                    EdgeInsets.only(left: 64, right: 64, bottom: 16, top: 16),
-                child: Text(
-                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit velsem telluorbi sed feugiat leo vulputate maximus iverra.",
-                  textAlign: TextAlign.center,
                 ),
               ),
             ],
