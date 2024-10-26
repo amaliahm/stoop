@@ -37,6 +37,7 @@ class _SignupPageState extends State<SignupPage> {
   @override
   Widget build(BuildContext context) {
   return Scaffold(
+    backgroundColor: AppTheme.mainGrey,
     body: Container(
       decoration: const BoxDecoration(
         gradient: LinearGradient(

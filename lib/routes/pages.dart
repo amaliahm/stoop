@@ -1,6 +1,8 @@
 // ignore_for_file: constant_identifier_names
 
 import 'package:get/get.dart';
+import 'package:stoop/di/injection_container.dart';
+import 'package:stoop/domain/usecases/login-usecase.dart';
 import 'package:stoop/pages/registration/UploadScreen.dart';
 import 'package:stoop/pages/registration/login.dart';
 import 'package:stoop/pages/onboarding/welcomePage.dart';
@@ -21,7 +23,7 @@ class AppPages {
     ),
     GetPage(
       name: Routes.LOGIN,
-      page: () => const LoginPage(),
+      page: () => LoginPage(loginUseCase: sl<LoginUseCase>()),
     ),
     GetPage(
       name: Routes.UPLOAD,
