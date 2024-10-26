@@ -1,6 +1,7 @@
 // ignore_for_file: constant_identifier_names
 
 import 'package:get/get.dart';
+import 'package:stoop/pages/registration/UploadScreen.dart';
 import 'package:stoop/pages/registration/login.dart';
 import 'package:stoop/pages/onboarding/welcomePage.dart';
 import 'package:stoop/pages/registration/signup.dart';
@@ -22,9 +23,9 @@ class AppPages {
       name: Routes.LOGIN,
       page: () => const LoginPage(),
     ),
-    // GetPage(
-    //   name: Routes.HOME,
-    //   page: () => NavigationHomeScreen(),
-    // ),
+    GetPage(
+      name: Routes.UPLOAD,
+      page: () => const UploadScreen(),
+    ),
   ];
 }

@@ -25,6 +25,10 @@ dependencies:
   web_socket_channel: ^2.4.0
   http: ^0.13.6
   selection_menu: ^2.0.2
+  image_picker: ^1.0.4
+  provider: ^6.1.2
+  permission_handler: ^11.0.1
+  google_mlkit_text_recognition: ^0.14.0
 
 dev_dependencies:
   flutter_test:

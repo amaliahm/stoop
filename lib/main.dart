@@ -1,10 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:provider/provider.dart';
 import 'package:stoop/routes/pages.dart';
+import 'package:stoop/services/ImageServiceImp.dart';
 import 'package:stoop/widgets/style.dart';
 
+import 'providers/upload_provider.dart';
+
 void main() async {
-  runApp(const MyApp());
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (_) => UploadProvider(MLKitImageService()),
+        ),
+      ],
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
