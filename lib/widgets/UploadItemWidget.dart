@@ -2,7 +2,7 @@
 
 import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
+// import 'package:image_picker/image_picker.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:stoop/models/UploadItem.dart';
 import 'package:stoop/widgets/style.dart';
@@ -24,16 +24,16 @@ class UploadItemWidget extends StatelessWidget {
       final status = await Permission.camera.request();
       
       if (status.isGranted) {
-        final ImagePicker picker = ImagePicker();
-        final XFile? image = await picker.pickImage(
-          source: ImageSource.camera,
-          imageQuality: 85,
-          preferredCameraDevice: CameraDevice.rear,
-        );
+        // final ImagePicker picker = ImagePicker();
+        // final XFile? image = await picker.pickImage(
+        //   source: ImageSource.camera,
+        //   imageQuality: 85,
+        //   preferredCameraDevice: CameraDevice.rear,
+        // );
         
-        if (image != null) {
-          onImagePicked(image.path);
-        }
+        // if (image != null) {
+        //   onImagePicked(image.path);
+        // }
       } else if (status.isPermanentlyDenied) {
         if (context.mounted) {
           showDialog(
