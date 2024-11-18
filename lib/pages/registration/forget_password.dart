@@ -76,7 +76,6 @@ class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
                               value!.isEmpty ? 'Please enter your phone number':  null
                           ),
                           const SizedBox(height: 40),
-                          
                           ElevatedButton(
                             onPressed: _handleForgetPassword,
                             style: ElevatedButton.styleFrom(
@@ -133,25 +132,25 @@ class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
   }
 
   Future<void> _handleForgetPassword() async {
-    if (_formKey.currentState?.validate() ?? false) {
-      final credentials = ForgetPasswordCredentials(
-        phone: _phoneController.text,
-      );
+    Get.toNamed(Routes.RESET_PASSWORD);
+    // if (_formKey.currentState?.validate() ?? false) {
+    //   final credentials = ForgetPasswordCredentials(
+    //     phone: _phoneController.text,
+    //   );
 
-      try {
-        final success = await widget.forgetPasswordUseCase.execute(credentials);
-        // final success = await widget.forgetPasswordUseCase.execute(credentials);
-        if (success && mounted) {
-          // home screen
-        }
-      } catch (e) {
-        if (mounted) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text('Failed: ${e.toString()}')),
-          );
-        }
-      }
-    }
+    //   try {
+    //     final success = await widget.forgetPasswordUseCase.execute(credentials);
+    //     if (success && mounted) {
+    //       Get.toNamed(Routes.RESET_PASSWORD);
+    //     }
+    //   } catch (e) {
+    //     if (mounted) {
+    //       ScaffoldMessenger.of(context).showSnackBar(
+    //         SnackBar(content: Text('Failed: ${e.toString()}')),
+    //       );
+    //     }
+    //   }
+    // }
   }
 
   @override

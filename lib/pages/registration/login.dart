@@ -103,7 +103,7 @@ class _LoginPageState extends State<LoginPage> {
                               ),
                             ),
                           ),
-                          const SizedBox(height: 20),
+                          const SizedBox(height: 170),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
@@ -114,6 +114,21 @@ class _LoginPageState extends State<LoginPage> {
                                 },
                                 child: const Text(
                                   'SIGN UP',
+                                  style: TextStyle(color: AppTheme.mainGrey),
+                                ),
+                              ),
+                            ],
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              const Text("Don't want to login?"),
+                              TextButton(
+                                onPressed: () {
+                                  Get.toNamed(Routes.WELCOME);
+                                },
+                                child: const Text(
+                                  'Go HOME',
                                   style: TextStyle(color: AppTheme.mainGrey),
                                 ),
                               ),
@@ -133,25 +148,26 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   Future<void> _handleLogin() async {
-    if (_formKey.currentState?.validate() ?? false) {
-      final credentials = LoginCredentials(
-        phone: _phoneController.text,
-        password: _passwordController.text,
-      );
+    Get.toNamed(Routes.HOME);
+    // if (_formKey.currentState?.validate() ?? false) {
+    //   final credentials = LoginCredentials(
+    //     phone: _phoneController.text,
+    //     password: _passwordController.text,
+    //   );
 
-      try {
-        final success = await widget.loginUseCase.execute(credentials);
-        if (success && mounted) {
-          // home screen
-        }
-      } catch (e) {
-        if (mounted) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text('Login failed: ${e.toString()}')),
-          );
-        }
-      }
-    }
+    //   try {
+    //     final success = await widget.loginUseCase.execute(credentials);
+    //     if (success && mounted) {
+    //       Get.toNamed(Routes.HOME);
+    //     }
+    //   } catch (e) {
+    //     if (mounted) {
+    //       ScaffoldMessenger.of(context).showSnackBar(
+    //         SnackBar(content: Text('Login failed: ${e.toString()}')),
+    //       );
+    //     }
+    //   }
+    // }
   }
 
   @override

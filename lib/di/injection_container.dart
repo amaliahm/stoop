@@ -8,6 +8,7 @@ import 'package:stoop/domain/repos/auth-repo.dart';
 // usecases
 import 'package:stoop/domain/usecases/login-usecase.dart';
 import 'package:stoop/domain/usecases/forget_password-usecase.dart';
+import 'package:stoop/domain/usecases/reset_password-usecase.dart';
 
 final GetIt sl = GetIt.instance;
 
@@ -22,8 +23,11 @@ Future<void> init() async {
     () => LoginUseCase(sl()),
   );
 
-  // usecases
   sl.registerLazySingleton(
     () => ForgetPasswordUseCase(sl()),
+  );
+
+  sl.registerLazySingleton(
+    () => ResetPasswordUseCase(sl()),
   );
 }

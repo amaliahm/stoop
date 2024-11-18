@@ -77,7 +77,7 @@ class _SignupPageState extends State<SignupPage> {
                           height: 32,
                         ),
                         onPressed: () {
-                          Navigator.pop(context);
+                          Get.toNamed(Routes.WELCOME);
                         },
                       ),
                       const SizedBox(height: 30),
@@ -190,10 +190,11 @@ class _SignupPageState extends State<SignupPage> {
 }
 
   void _submitForm() {
-    if (_formKey.currentState!.validate()) {
-      Get.toNamed(Routes.UPLOAD);
-    } else {
-      print('Form is invalid. Please correct the errors.');
-    }
+    Get.toNamed(Routes.UPLOAD);
+    // if (_formKey.currentState!.validate()) {
+    //   Get.toNamed(Routes.UPLOAD);
+    // } else {
+    //   print('Form is invalid. Please correct the errors.');
+    // }
   }
 }
