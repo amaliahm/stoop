@@ -2,8 +2,14 @@
 
 import 'package:get/get.dart';
 import 'package:stoop/di/injection_container.dart';
+
+// usecases
+import 'package:stoop/domain/usecases/forget_password-usecase.dart';
 import 'package:stoop/domain/usecases/login-usecase.dart';
+
+// screens
 import 'package:stoop/pages/registration/UploadScreen.dart';
+import 'package:stoop/pages/registration/forget_password.dart';
 import 'package:stoop/pages/registration/login.dart';
 import 'package:stoop/pages/onboarding/welcomePage.dart';
 import 'package:stoop/pages/registration/signup.dart';
@@ -20,6 +26,10 @@ class AppPages {
     GetPage(
       name: Routes.SIGNUP,
       page: () => const SignupPage(),
+    ),
+    GetPage(
+      name: Routes.FORGET_PASSWORD,
+      page: () => ForgetPasswordPage(forgetPasswordUseCase: sl<ForgetPasswordUseCase>()),
     ),
     GetPage(
       name: Routes.LOGIN,

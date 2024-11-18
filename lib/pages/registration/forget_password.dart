@@ -1,24 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:stoop/domain/entities/login_credentials.dart';
-import 'package:stoop/domain/usecases/login-usecase.dart';
 import 'package:stoop/routes/pages.dart';
+
+// credential
+import 'package:stoop/domain/entities/forget_password_credentials.dart';
+
+// usecase
+import 'package:stoop/domain/usecases/forget_password-usecase.dart';
+
+// components
 import 'package:stoop/widgets/custom_input_field.dart';
+
+// style
 import 'package:stoop/widgets/style.dart';
 
-class LoginPage extends StatefulWidget {
-  final LoginUseCase loginUseCase;
+class ForgetPasswordPage extends StatefulWidget {
+  final ForgetPasswordUseCase forgetPasswordUseCase;
 
-  const LoginPage({super.key, required this.loginUseCase});
+  const ForgetPasswordPage({super.key, required this.forgetPasswordUseCase});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<ForgetPasswordPage> createState() => _ForgetPasswordPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
   final _formKey = GlobalKey<FormState>();
   final _phoneController = TextEditingController();
-  final _passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +39,7 @@ class _LoginPageState extends State<LoginPage> {
               child: Column(
                 children: const [
                   Text(
-                    'Log In',
+                    'Forget Password!!',
                     style: TextStyle(
                       color: AppTheme.whiteColor,
                       fontSize: 24,
@@ -41,7 +48,7 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   SizedBox(height: 8),
                   Text(
-                    'Welcome Back!!',
+                    'Please enter your phone number to reset your password',
                     style: TextStyle(color: AppTheme.whiteColor),
                   ),
                 ],
@@ -68,17 +75,10 @@ class _LoginPageState extends State<LoginPage> {
                             validator: (value) =>
                               value!.isEmpty ? 'Please enter your phone number':  null
                           ),
-                          const SizedBox(height: 16),
-                          CustomInputField(
-                            label: 'Password',
-                            isPassword: true,
-                            controller: _passwordController,
-                            validator: (value) =>
-                              value!.isEmpty ? 'Please enter your password':  null
-                          ),
                           const SizedBox(height: 40),
+                          
                           ElevatedButton(
-                            onPressed: _handleLogin,
+                            onPressed: _handleForgetPassword,
                             style: ElevatedButton.styleFrom(
                               backgroundColor: AppTheme.mainGrey,
                               padding: const EdgeInsets.symmetric(vertical: 16),
@@ -87,7 +87,7 @@ class _LoginPageState extends State<LoginPage> {
                               ),
                             ),
                             child: const Text(
-                              'LOG IN',
+                              'SEND CODE',
                               style: TextStyle(color: AppTheme.whiteColor),
                             ),
                           ),
@@ -95,10 +95,10 @@ class _LoginPageState extends State<LoginPage> {
                             alignment: Alignment.centerRight,
                             child: TextButton(
                               onPressed: () {
-                                Get.toNamed(Routes.FORGET_PASSWORD);
+                                Get.toNamed(Routes.LOGIN);
                               },
                               child: const Text(
-                                'Forgot Password',
+                                'Do you remember your password!',
                                 style: TextStyle(color: AppTheme.mainGrey),
                               ),
                             ),
@@ -132,22 +132,22 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  Future<void> _handleLogin() async {
+  Future<void> _handleForgetPassword() async {
     if (_formKey.currentState?.validate() ?? false) {
-      final credentials = LoginCredentials(
+      final credentials = ForgetPasswordCredentials(
         phone: _phoneController.text,
-        password: _passwordController.text,
       );
 
       try {
-        final success = await widget.loginUseCase.execute(credentials);
+        final success = await widget.forgetPasswordUseCase.execute(credentials);
+        // final success = await widget.forgetPasswordUseCase.execute(credentials);
         if (success && mounted) {
           // home screen
         }
       } catch (e) {
         if (mounted) {
           ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text('Login failed: ${e.toString()}')),
+            SnackBar(content: Text('Failed: ${e.toString()}')),
           );
         }
       }
@@ -157,7 +157,6 @@ class _LoginPageState extends State<LoginPage> {
   @override
   void dispose() {
     _phoneController.dispose();
-    _passwordController.dispose();
     super.dispose();
   }
 }
