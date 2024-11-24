@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:stoop/domain/entities/login_credentials.dart';
 import 'package:stoop/domain/usecases/login-usecase.dart';
-import 'package:stoop/routes/pages.dart';
+import 'package:stoop/routes/routes.dart';
 import 'package:stoop/widgets/custom_input_field.dart';
 import 'package:stoop/widgets/style.dart';
 
@@ -63,19 +62,19 @@ class _LoginPageState extends State<LoginPage> {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           CustomInputField(
-                            label: 'Phone',
-                            initialValue: '+213555555555',
-                            validator: (value) =>
-                              value!.isEmpty ? 'Please enter your phone number':  null
-                          ),
+                              label: 'Phone',
+                              initialValue: '+213555555555',
+                              validator: (value) => value!.isEmpty
+                                  ? 'Please enter your phone number'
+                                  : null),
                           const SizedBox(height: 16),
                           CustomInputField(
-                            label: 'Password',
-                            isPassword: true,
-                            controller: _passwordController,
-                            validator: (value) =>
-                              value!.isEmpty ? 'Please enter your password':  null
-                          ),
+                              label: 'Password',
+                              isPassword: true,
+                              controller: _passwordController,
+                              validator: (value) => value!.isEmpty
+                                  ? 'Please enter your password'
+                                  : null),
                           const SizedBox(height: 40),
                           ElevatedButton(
                             onPressed: _handleLogin,
@@ -95,7 +94,7 @@ class _LoginPageState extends State<LoginPage> {
                             alignment: Alignment.centerRight,
                             child: TextButton(
                               onPressed: () {
-                                Get.toNamed(Routes.FORGET_PASSWORD);
+                                Get.toNamed(AppRouter.forget_password);
                               },
                               child: const Text(
                                 'Forgot Password',
@@ -110,7 +109,7 @@ class _LoginPageState extends State<LoginPage> {
                               const Text("Don't have an account?"),
                               TextButton(
                                 onPressed: () {
-                                  Get.toNamed(Routes.SIGNUP);
+                                Get.toNamed(AppRouter.signup);
                                 },
                                 child: const Text(
                                   'SIGN UP',
@@ -125,7 +124,7 @@ class _LoginPageState extends State<LoginPage> {
                               const Text("Don't want to login?"),
                               TextButton(
                                 onPressed: () {
-                                  Get.toNamed(Routes.WELCOME);
+                                  Get.toNamed(AppRouter.initial);
                                 },
                                 child: const Text(
                                   'Go HOME',
@@ -148,7 +147,7 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   Future<void> _handleLogin() async {
-    Get.toNamed(Routes.HOME);
+    Get.toNamed(AppRouter.home);
     // if (_formKey.currentState?.validate() ?? false) {
     //   final credentials = LoginCredentials(
     //     phone: _phoneController.text,
@@ -158,7 +157,7 @@ class _LoginPageState extends State<LoginPage> {
     //   try {
     //     final success = await widget.loginUseCase.execute(credentials);
     //     if (success && mounted) {
-    //       Get.toNamed(Routes.HOME);
+    //       Get.toNamed(AppRouter.home);
     //     }
     //   } catch (e) {
     //     if (mounted) {

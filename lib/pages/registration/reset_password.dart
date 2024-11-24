@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:stoop/routes/pages.dart';
-
-// credentials
-import 'package:stoop/domain/entities/reset_password_credentials.dart';
 
 // usecases
 import 'package:stoop/domain/usecases/reset_password-usecase.dart';
@@ -13,6 +9,8 @@ import 'package:stoop/widgets/custom_input_field.dart';
 
 // style
 import 'package:stoop/widgets/style.dart';
+
+import '../../routes/routes.dart';
 
 class ResetPasswordPage extends StatefulWidget {
   final ResetPasswordUseCase resetPasswordUseCase;
@@ -70,12 +68,12 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           CustomInputField(
-                            label: 'Password',
-                            isPassword: true,
-                            controller: _passwordController,
-                            validator: (value) =>
-                              value!.isEmpty ? 'Please enter your password':  null
-                          ),
+                              label: 'Password',
+                              isPassword: true,
+                              controller: _passwordController,
+                              validator: (value) => value!.isEmpty
+                                  ? 'Please enter your password'
+                                  : null),
                           const SizedBox(height: 40),
                           ElevatedButton(
                             onPressed: _handleResetPassword,
@@ -98,7 +96,7 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
                               const Text("Do you remember your password!"),
                               TextButton(
                                 onPressed: () {
-                                  Get.toNamed(Routes.LOGIN);
+                                  Get.toNamed(AppRouter.login);
                                 },
                                 child: const Text(
                                   'LOG IN',
@@ -121,7 +119,7 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
   }
 
   Future<void> _handleResetPassword() async {
-    Get.toNamed(Routes.LOGIN);
+    Get.toNamed(AppRouter.login);
     // if (_formKey.currentState?.validate() ?? false) {
     //   final credentials = ResetPasswordCredentials(
     //     password: _passwordController.text,
@@ -130,7 +128,7 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
     //   try {
     //     final success = await widget.resetPasswordUseCase.execute(credentials);
     //     if (success && mounted) {
-    //       Get.toNamed(Routes.LOGIN);
+    //       Get.toNamed(AppRouter.login);
     //     }
     //   } catch (e) {
     //     if (mounted) {

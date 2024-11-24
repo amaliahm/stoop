@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../routes/pages.dart';
+import 'package:stoop/routes/routes.dart';
 import '../../components/onboarding/center_next_button.dart';
 import '../../components/onboarding/travel_easy.dart';
 import '../../components/onboarding/choose_what_helps_you.dart';
@@ -29,7 +29,6 @@ class _WelcomePageState extends State<WelcomePage>
     _animationController =
         AnimationController(vsync: this, duration: const Duration(seconds: 12));
     _animationController?.forward();
-
   }
 
   @override
@@ -45,24 +44,12 @@ class _WelcomePageState extends State<WelcomePage>
       body: ClipRect(
         child: Stack(
           children: [
-            SplashView(
-              animationController: _animationController!
-            ),
-            TravelEasy(
-              animationController: _animationController!
-            ),
-            ContactTheDriver(
-              animationController: _animationController!
-            ),
-            SearchAnytime(
-              animationController: _animationController!
-            ),
-            ChooseWhatHelpsYou(
-              animationController: _animationController!
-            ),
-            WelcomeView(
-              animationController: _animationController!
-            ),
+            SplashView(animationController: _animationController!),
+            TravelEasy(animationController: _animationController!),
+            ContactTheDriver(animationController: _animationController!),
+            SearchAnytime(animationController: _animationController!),
+            ChooseWhatHelpsYou(animationController: _animationController!),
+            WelcomeView(animationController: _animationController!),
             TopBackSkipView(
               onBackClick: _onBackClick,
               onSkipClick: _onSkipClick,
@@ -115,12 +102,12 @@ class _WelcomePageState extends State<WelcomePage>
     } else if (_animationController!.value > 0.4 &&
         _animationController!.value <= 0.6) {
       _animationController?.animateTo(0.8);
-    }  else if (_animationController!.value > 0.6 &&
+    } else if (_animationController!.value > 0.6 &&
         _animationController!.value <= 0.8) {
       _animationController?.animateTo(1.0);
     } else if (_animationController!.value > 0.8 &&
         _animationController!.value <= 1.0) {
-      Get.toNamed(Routes.SIGNUP);
+      Get.toNamed(AppRouter.signup);
     }
   }
 }

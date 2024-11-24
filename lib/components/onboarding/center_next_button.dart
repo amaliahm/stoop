@@ -3,9 +3,8 @@
 import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:stoop/routes/routes.dart';
 import 'package:stoop/widgets/style.dart';
-
-import '../../routes/pages.dart';
 
 class CenterNextButton extends StatelessWidget {
   final AnimationController animationController;
@@ -152,7 +151,7 @@ class CenterNextButton extends StatelessWidget {
                     ),
                   ),
                   InkWell(
-                    onTap: () => Get.toNamed(Routes.LOGIN),
+                    onTap: () => Get.toNamed(AppRouter.login),
                     child: const Text(
                       'Login',
                       style: TextStyle(

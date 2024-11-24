@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:stoop/routes/pages.dart';
-
-// credential
-import 'package:stoop/domain/entities/forget_password_credentials.dart';
 
 // usecase
 import 'package:stoop/domain/usecases/forget_password-usecase.dart';
@@ -13,6 +9,8 @@ import 'package:stoop/widgets/custom_input_field.dart';
 
 // style
 import 'package:stoop/widgets/style.dart';
+
+import '../../routes/routes.dart';
 
 class ForgetPasswordPage extends StatefulWidget {
   final ForgetPasswordUseCase forgetPasswordUseCase;
@@ -70,11 +68,11 @@ class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           CustomInputField(
-                            label: 'Phone',
-                            initialValue: '+213555555555',
-                            validator: (value) =>
-                              value!.isEmpty ? 'Please enter your phone number':  null
-                          ),
+                              label: 'Phone',
+                              initialValue: '+213555555555',
+                              validator: (value) => value!.isEmpty
+                                  ? 'Please enter your phone number'
+                                  : null),
                           const SizedBox(height: 40),
                           ElevatedButton(
                             onPressed: _handleForgetPassword,
@@ -94,7 +92,7 @@ class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
                             alignment: Alignment.centerRight,
                             child: TextButton(
                               onPressed: () {
-                                Get.toNamed(Routes.LOGIN);
+                                Get.toNamed(AppRouter.login);
                               },
                               child: const Text(
                                 'Do you remember your password!',
@@ -109,7 +107,7 @@ class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
                               const Text("Don't have an account?"),
                               TextButton(
                                 onPressed: () {
-                                  Get.toNamed(Routes.SIGNUP);
+                                  Get.toNamed(AppRouter.signup);
                                 },
                                 child: const Text(
                                   'SIGN UP',
@@ -132,7 +130,7 @@ class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
   }
 
   Future<void> _handleForgetPassword() async {
-    Get.toNamed(Routes.RESET_PASSWORD);
+    Get.toNamed(AppRouter.reset_password);
     // if (_formKey.currentState?.validate() ?? false) {
     //   final credentials = ForgetPasswordCredentials(
     //     phone: _phoneController.text,
@@ -141,7 +139,7 @@ class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
     //   try {
     //     final success = await widget.forgetPasswordUseCase.execute(credentials);
     //     if (success && mounted) {
-    //       Get.toNamed(Routes.RESET_PASSWORD);
+    //       Get.toNamed(AppRouter.reset_password);
     //     }
     //   } catch (e) {
     //     if (mounted) {

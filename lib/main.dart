@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
-import 'package:stoop/routes/pages.dart';
 import 'package:stoop/services/ImageServiceImp.dart';
 import 'package:stoop/widgets/style.dart';
 import 'providers/upload_provider.dart';
 import 'di/injection_container.dart' as di;
+import 'routes/routes.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -43,11 +43,9 @@ class MyApp extends StatelessWidget {
         ),
       ),
       defaultTransition: Transition.cupertino,
-      opaqueRoute: Get.isOpaqueRouteDefault,
-      popGesture: Get.isPopGestureEnable,
       transitionDuration: const Duration(milliseconds: 230),
-      initialRoute: AppPages.INITIAL,
-      getPages: AppPages.routes,
+      onGenerateRoute: AppRouter.onGenerateRoute,
+      initialRoute: AppRouter.initial,
     );
   }
 }

@@ -1,8 +1,10 @@
 // ignore_for_file: file_names
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 import 'package:stoop/providers/upload_provider.dart';
+import 'package:stoop/routes/routes.dart';
 import 'package:stoop/widgets/UploadItemWidget.dart';
 import 'package:stoop/widgets/auth_progress_bar.dart';
 
@@ -28,8 +30,8 @@ class UploadScreen extends StatelessWidget {
                     ],
                   ),
                   const SizedBox(height: 20),
-                  ProgressBar(
-                    currentStep: provider.currentStep,
+                  const ProgressBar(
+                    currentStep: 2,
                     totalSteps: 2,
                   ),
                   const SizedBox(height: 40),
@@ -46,7 +48,10 @@ class UploadScreen extends StatelessWidget {
                     ),
                   ),
                   ElevatedButton(
-                    onPressed: provider.canProceed ? () => provider.proceed(context) : null,
+                    // onPressed: provider.canProceed ? () => provider.proceed(context) : null,
+                    onPressed: () => {
+                      Get.toNamed(AppRouter.verification_email)
+                    },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.green,
                       minimumSize: const Size(double.infinity, 50),
