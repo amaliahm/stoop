@@ -1,4 +1,3 @@
-
 import 'package:get_it/get_it.dart';
 
 // repos
@@ -20,14 +19,12 @@ Future<void> init() async {
 
   // usecases
   sl.registerLazySingleton(
-    () => LoginUseCase(sl()),
+    () => LoginUseCase(sl<AuthRepository>()),
   );
-
   sl.registerLazySingleton(
-    () => ForgetPasswordUseCase(sl()),
+    () => ForgetPasswordUseCase(sl<AuthRepository>()),
   );
-
   sl.registerLazySingleton(
-    () => ResetPasswordUseCase(sl()),
+    () => ResetPasswordUseCase(sl<AuthRepository>()),
   );
 }

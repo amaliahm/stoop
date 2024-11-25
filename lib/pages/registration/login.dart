@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:provider/provider.dart';
 import 'package:stoop/domain/usecases/login-usecase.dart';
 import 'package:stoop/routes/routes.dart';
 import 'package:stoop/widgets/custom_input_field.dart';
 import 'package:stoop/widgets/style.dart';
+
+import '../../providers/auth_provider.dart';
 
 class LoginPage extends StatefulWidget {
   final LoginUseCase loginUseCase;
@@ -21,6 +24,8 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
+    // final loginProvider = Provider.of<AuthProvider>(context);
+    // loginProvider.email
     return Scaffold(
       backgroundColor: AppTheme.mainGrey,
       body: SafeArea(

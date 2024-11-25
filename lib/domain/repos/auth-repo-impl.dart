@@ -1,7 +1,7 @@
 // ignore_for_file: file_names
 
 // credentials
-import 'package:stoop/domain/entities/login_credentials.dart';
+import 'package:stoop/domain/entities/login_credentials_email.dart';
 import 'package:stoop/domain/entities/forget_password_credentials.dart';
 import 'package:stoop/domain/entities/reset_password_credentials.dart';
 

@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
+import 'package:stoop/domain/usecases/forget_password-usecase.dart';
+import 'package:stoop/domain/usecases/reset_password-usecase.dart';
+import 'package:stoop/providers/auth_provider.dart';
 import 'package:stoop/services/ImageServiceImp.dart';
 import 'package:stoop/widgets/style.dart';
+import 'di/injection_container.dart';
+import 'domain/usecases/login-usecase.dart';
 import 'providers/upload_provider.dart';
 import 'di/injection_container.dart' as di;
 import 'routes/routes.dart';
@@ -13,6 +18,13 @@ void main() async {
   runApp(
     MultiProvider(
       providers: [
+        ChangeNotifierProvider(
+          create: (_) => AuthProvider(
+            sl<LoginUseCase>(),
+            sl<ResetPasswordUseCase>(), 
+            sl<ForgetPasswordUseCase>()
+          ),
+        ),
         ChangeNotifierProvider(
           create: (_) => UploadProvider(MLKitImageService()),
         ),
