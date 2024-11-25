@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:stoop/domain/entities/login_credentials_email.dart';
+import 'package:stoop/domain/entities/login_credentials.dart';
 
 // usecases
 import '../domain/usecases/login-usecase.dart';

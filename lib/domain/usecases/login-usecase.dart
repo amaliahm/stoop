@@ -1,6 +1,6 @@
 // ignore_for_file: file_names
 
-import 'package:stoop/domain/entities/login_credentials_email.dart';
+import 'package:stoop/domain/entities/login_credentials.dart';
 import 'package:stoop/domain/repos/auth-repo.dart';
 
 class LoginUseCase {
