@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 import 'package:stoop/domain/usecases/login-usecase.dart';
@@ -32,21 +33,51 @@ class _LoginPageState extends State<LoginPage> {
         child: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.symmetric(vertical: 40),
-              child: Column(
-                children: const [
-                  Text(
-                    'Log In',
-                    style: TextStyle(
-                      color: AppTheme.whiteColor,
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
+              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 0),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Positioned(
+                    left: 0,
+                    top: 0,
+                    child: IconButton(
+                      icon: SvgPicture.asset(
+                        'assets/images/back_icon.svg',
+                        width: 32,
+                        height: 32,
+                      ),
+                      onPressed: () {
+                        Get.toNamed(AppRouter.initial);
+                      },
                     ),
                   ),
-                  SizedBox(height: 8),
-                  Text(
-                    'Welcome Back!!',
-                    style: TextStyle(color: AppTheme.whiteColor),
+                  const SizedBox(
+                    width: 30,
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: const [
+                      SizedBox(
+                        height: 40,
+                      ),
+                      Text(
+                        'Log In',
+                        style: TextStyle(
+                          color: AppTheme.whiteColor,
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      SizedBox(height: 8),
+                      Text(
+                        'Welcome Back!!',
+                        style: TextStyle(color: AppTheme.whiteColor),
+                      ),
+                      SizedBox(
+                        height: 40,
+                      )
+                    ],
                   ),
                 ],
               ),

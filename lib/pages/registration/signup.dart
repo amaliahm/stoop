@@ -63,6 +63,18 @@ class _SignupPageState extends State<SignupPage> {
                   height: 80,
                 ),
               ),
+              const Positioned(
+                top: 30,
+                left: 80,
+                child: Text(
+                  'Sign Up',
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                    color: AppTheme.whiteColor,
+                  ),
+                )
+              ),
               Column(
                 children: [
                   Padding(
