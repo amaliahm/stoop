@@ -104,7 +104,7 @@ class UploadScreen extends StatelessWidget {
                           child: ElevatedButton(
                             // onPressed: provider.canProceed ? () => provider.proceed(context) : null,
                             onPressed: () =>
-                                {Get.toNamed(AppRouter.verification_email)},
+                                {Get.toNamed(AppRouter.verification_number)},
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.green,
                               minimumSize: const Size(double.infinity, 50),

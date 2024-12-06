@@ -5,7 +5,6 @@ import 'package:stoop/pages/onboarding/welcomePage.dart';
 import 'package:stoop/pages/registration/UploadScreen.dart';
 import 'package:stoop/pages/registration/login.dart';
 import 'package:stoop/pages/registration/signup.dart';
-import 'package:stoop/pages/registration/verify_email.dart';
 import 'package:stoop/pages/registration/verify_number.dart';
 
 import '../di/injection_container.dart';
@@ -19,7 +18,6 @@ class AppRouter {
   static const String initial = '/';
   static const String signup = '/signup';
   static const String upload = '/upload';
-  static const String verification_email = '/verification_email';
   static const String verification_number = '/verification_number';
   static const String login = '/login';
   static const String forget_password = '/forget_password';
@@ -37,8 +35,6 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const SignupPage());
       case upload:
         return MaterialPageRoute(builder: (_) => const UploadScreen());
-      case verification_email:
-        return MaterialPageRoute(builder: (_) => const VerifyEmail());
       case verification_number:
         return MaterialPageRoute(builder: (_) => const VerifyNumber());
       case login:

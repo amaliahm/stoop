@@ -1,9 +1,9 @@
-
 import 'package:flutter/material.dart';
+import 'package:stoop/widgets/style.dart';
 
 class VerificationInput extends StatelessWidget {
   final Function(String) onChanged;
-  
+
   const VerificationInput({super.key, required this.onChanged});
 
   @override
@@ -23,12 +23,23 @@ class VerificationInput extends StatelessWidget {
               maxLength: 1,
               decoration: InputDecoration(
                 counterText: "",
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(8),
+                labelStyle: const TextStyle(
+                  color: AppTheme.whiteColor,
                 ),
+                focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(8),
+                    borderSide: const BorderSide(
+                      color: AppTheme.mainGrey,
+                    )),
+                enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(8),
+                    borderSide: const BorderSide(
+                      color: AppTheme.mainGrey,
+                    )),
                 filled: true,
-                fillColor: Colors.grey[200],
+                fillColor: AppTheme.whiteColor,
               ),
+              style: const TextStyle(color: AppTheme.mainGrey),
               onChanged: (value) {
                 if (value.isNotEmpty) {
                   onChanged(value);
